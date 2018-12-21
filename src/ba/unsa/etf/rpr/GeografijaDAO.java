@@ -13,10 +13,10 @@ public class GeografijaDAO {
         connection = null;
 
         try {
-            String url = "jdbc:sqlite:baza.db";
+            String url = "jdbc:sqlite:resources/baza.db";
             connection = DriverManager.getConnection(url);
             kreirajTabele();
-            popuniPodacima();
+            popuni();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -36,7 +36,7 @@ public class GeografijaDAO {
         geografijaDAO = new GeografijaDAO();
     }
 
-    public void popuniPodacima() {
+    public void popuni() {
         Grad pariz = new Grad("Pariz", 2206488);
         Drzava francuska = new Drzava("Francuska", pariz);
         pariz.setDrzava(francuska);
