@@ -7,6 +7,18 @@ public class Drzava {
 
     public Drzava(){}
 
+    public Drzava( int id, String naziv, Grad glavniGrad) {
+        this.id = id;
+        this.naziv=naziv;
+        this.glavniGrad=glavniGrad;
+    }
+
+    public Drzava( String naziv, Grad glavniGrad) {
+        this.id = 0;
+        this.naziv=naziv;
+        this.glavniGrad=glavniGrad;
+    }
+
     public int getId() {
         return id;
     }

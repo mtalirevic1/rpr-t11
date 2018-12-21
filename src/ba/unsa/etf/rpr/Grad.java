@@ -8,6 +8,20 @@ public class Grad {
 
     public Grad(){}
 
+    public Grad (int id, String naziv, int brojStanovnika) {
+        this.id=id;
+        this.naziv=naziv;
+        this.broj_Stanovnika=brojStanovnika;
+        this.drzava=null;
+    }
+
+    public Grad( String naziv, int brojStanovnika){
+        this.id=0;
+        this.naziv=naziv;
+        this.broj_Stanovnika=brojStanovnika;
+        this.drzava=null;
+    }
+
     public int getId() {
         return id;
     }
@@ -40,9 +54,4 @@ public class Grad {
         this.drzava = drzava;
     }
 
-    public void setBrojStanovnika(int i) {
-    }
-
-    public int getBrojStanovnika() {
-    }
 }

@@ -72,7 +72,7 @@ class GeografijaDAOTest {
         Drzava francuska = dao.nadjiDrzavu("Francuska");
         Grad grad = new Grad();
         grad.setNaziv("Marseille");
-        grad.setBrojStanovnika(869815);
+        grad.setBroj_Stanovnika(869815);
         grad.setDrzava(francuska);
         dao.dodajGrad(grad);
 
@@ -88,7 +88,7 @@ class GeografijaDAOTest {
         dbfile.delete();
         Grad sarajevo = new Grad();
         sarajevo.setNaziv("Sarajevo");
-        sarajevo.setBrojStanovnika(500000);
+        sarajevo.setBroj_Stanovnika(500000);
         Drzava bih = new Drzava();
         bih.setNaziv("Bosna i Hercegovina");
         bih.setGlavniGrad(sarajevo);
@@ -101,7 +101,7 @@ class GeografijaDAOTest {
         // Provjera
         Grad proba = dao.glavniGrad("Bosna i Hercegovina");
         assertEquals("Sarajevo", proba.getNaziv());
-        assertEquals(500000, proba.getBrojStanovnika());
+        assertEquals(500000, proba.getBroj_Stanovnika());
         assertEquals("Bosna i Hercegovina", proba.getDrzava().getNaziv());
     }
 
