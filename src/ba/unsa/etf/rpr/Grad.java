@@ -39,4 +39,10 @@ public class Grad {
     public void setDrzava(Drzava drzava) {
         this.drzava = drzava;
     }
+
+    public void setBrojStanovnika(int i) {
+    }
+
+    public int getBrojStanovnika() {
+    }
 }
