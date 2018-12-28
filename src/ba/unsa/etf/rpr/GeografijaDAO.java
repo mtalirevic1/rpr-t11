@@ -85,12 +85,12 @@ public class GeografijaDAO {
                 return;
             PreparedStatement stmt = connection.prepareStatement("INSERT OR REPLACE INTO drzave(naziv, glavniGrad) VALUES(?,null)");
             stmt.setString(1, drzava.getNaziv());
-            stmt.executeUpdate(); //dodali drzavu pod nazivom
+            stmt.executeUpdate();
 
             Drzava d = nadjiDrzavu(drzava.getNaziv());
             drzava.getGlavniGrad().setDrzava(d);
 
-            dodajGrad(drzava.getGlavniGrad()); //ako vec nije u tabeli
+            dodajGrad(drzava.getGlavniGrad());
             Grad g = nadjiGrad(drzava.getGlavniGrad().getNaziv());
             g.setDrzava(d);
             drzava.getGlavniGrad().setId(g.getId());
@@ -170,7 +170,7 @@ public class GeografijaDAO {
 
     public Grad glavniGrad(String nazivDrzave) {
 
-        //ako nema drzave vratit ce null
+
         if (nadjiDrzavu(nazivDrzave) == null)
             return null;
         try {
@@ -193,11 +193,11 @@ public class GeografijaDAO {
     public void obrisiDrzavu(String nazivDrzave) {
         Drzava drzava=nadjiDrzavu(nazivDrzave);
         try {
-            //provjera ukoliko nema drzave
+
             if (drzava == null)
                 return;
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM drzave WHERE naziv=?");
-            //prvo obrišem sve gradove unutar drzave
+
             try {
                 PreparedStatement stmt1 = connection.prepareStatement("DELETE FROM gradovi WHERE drzava=?");
                 stmt1.setInt(1, drzava.getId());
